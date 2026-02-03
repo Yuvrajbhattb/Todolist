@@ -1,0 +1,514 @@
+/* ==================== GLOBAL STYLES ==================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  
+  --bg-dark: #0f172a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: rgba(255, 255, 255, 0.08);
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==================== BACKGROUND ==================== */
+
+.background-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  opacity: 0.15;
+}
+
+.background-gradient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* ==================== CONTAINER ==================== */
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================== HEADER ==================== */
+
+.app-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.title-icon {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+/* ==================== INPUT SECTION ==================== */
+
+.input-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.input-wrapper {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.todo-input {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.todo-input::placeholder {
+  color: var(--text-muted);
+}
+
+.add-btn {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.error-message {
+  color: var(--danger);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  display: none;
+  animation: slideDown var(--transition-base);
+}
+
+.error-message.show {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== STATS SECTION ==================== */
+
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-item {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.stat-item:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==================== TODOS CONTAINER ==================== */
+
+.todos-container {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-lg);
+  min-height: 300px;
+}
+
+.todos-list {
+  list-style: none;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) 0;
+  color: var(--text-secondary);
+}
+
+.empty-state.hidden {
+  display: none;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* ==================== TODO ITEM ==================== */
+
+.todo-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: all var(--transition-base);
+  animation: slideIn var(--transition-base);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.todo-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+}
+
+.todo-item:last-child {
+  margin-bottom: 0;
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* ==================== TODO CHECKBOX ==================== */
+
+.todo-checkbox {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  background: transparent;
+}
+
+.todo-checkbox:hover {
+  border-color: var(--primary);
+}
+
+.todo-checkbox.checked {
+  background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+  border-color: var(--success);
+}
+
+.todo-checkbox.checked::after {
+  content: '✓';
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ==================== TODO TEXT ==================== */
+
+.todo-text {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-primary);
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.todo-text-input {
+  flex: 1;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 1rem;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  outline: none;
+}
+
+/* ==================== TODO ACTIONS ==================== */
+
+.todo-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.icon-btn.edit-btn:hover {
+  color: var(--primary-light);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.icon-btn.delete-btn:hover {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.icon-btn.save-btn {
+  color: var(--success);
+}
+
+.icon-btn.save-btn:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.icon-btn.cancel-btn {
+  color: var(--text-muted);
+}
+
+.icon-btn.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 640px) {
+  .container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .title-icon {
+    font-size: 1.75rem;
+  }
+
+  .app-subtitle {
+    font-size: 1rem;
+  }
+
+  .input-wrapper {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    justify-content: center;
+  }
+
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.todo-item.removing {
+  animation: fadeOut var(--transition-base) forwards;
+}

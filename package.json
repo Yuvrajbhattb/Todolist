@@ -1,0 +1,20 @@
+{
+    "name": "todoapp",
+    "version": "1.0.0",
+    "description": "A modern Todo List application with SQLite database",
+    "main": "backend/server.js",
+    "scripts": {
+        "install-backend": "cd backend && npm install",
+        "start": "cd backend && npm start",
+        "dev": "cd backend && npm run dev"
+    },
+    "keywords": [
+        "todo",
+        "sqlite",
+        "express",
+        "crud",
+        "fullstack"
+    ],
+    "author": "",
+    "license": "ISC"
+}
