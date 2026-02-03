@@ -116,6 +116,3 @@ All operations update the UI instantly without page reloads!
 
 ISC
 
-## 👨‍💻 Author
-
-Built with ❤️ using modern web technologies
