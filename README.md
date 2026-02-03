@@ -83,12 +83,6 @@ All endpoints are prefixed with `/api/todos`
 
 ## 🛠️ Technologies Used
 
-**Backend:**
-- Node.js
-- Express.js
-- better-sqlite3
-- CORS
-
 **Frontend:**
 - HTML5
 - CSS3 (with modern features)
